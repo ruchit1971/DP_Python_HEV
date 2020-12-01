@@ -1,3 +1,4 @@
+
 # Import Libraries
 import tkinter as tk
 from tkinter.ttk import *
@@ -9,6 +10,7 @@ from PIL import ImageTk, Image
 
 global data
 data = loadmat('City_MAN_DDP.mat')
+
 # Velocity...
 #global V_z
 V_z = data['V_z']
@@ -32,7 +34,6 @@ w = (numpy.abs(SOC_grid-Initial_SOC)).argmin()
 finalCost = numpy.zeros(len(SOC_grid))
 finalCost[numpy.where(SOC_grid < 0.5)] = numpy.inf
 
-E = 1
 
 
 # First Function file for paralleHybrid.
