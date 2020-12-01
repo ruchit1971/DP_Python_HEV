@@ -36,7 +36,7 @@ finalCost[numpy.where(SOC_grid < 0.5)] = numpy.inf
 
 
 
-# First Function file for paralleHybrid.
+# Function file for paralleHybrid to calculate the stepcost.
 
 def parallelHybrid(t_vec, SOC_start, SOC_final, G_z, V_z):
     # Inputs:
