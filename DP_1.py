@@ -24,7 +24,7 @@ Initial_SOC = float(0.5)
 length = len(V_z)
 Time = range(length)
 T_z = data['T_z']
-SOC_grid = numpy.arange(0.4, 0.61, 0.0001)
+SOC_grid = numpy.arange(0.4, 0.61, 0.001)
 w = (numpy.abs(SOC_grid - Initial_SOC)).argmin()
 # Final Cost Grid
 finalCost = numpy.zeros(len(SOC_grid))
@@ -243,7 +243,7 @@ o = w
 a = numpy.zeros(len(T_z), dtype=float)
 x = numpy.zeros(len(T_z), dtype=float)
 elex1 = numpy.arange(0, last_element - 1, 1)
-SOC = numpy.zeros(len(T_z) - 1, dtype=float)
+SOC = numpy.zeros((len(T_z) ,1), dtype=float)
 FC = numpy.zeros(len(T_z) - 1, dtype=float)
 
 for idx1 in elex1:
@@ -262,12 +262,11 @@ for idx1 in elex1:
     FC[idx1] = ee
     ttr = len(SOC)
 
+SOC[last_element-1] = SOC_grid[w]
 x_tot = trapz(V_z, T_z, 1)
 Fuel_consumption = ((FC[0] / 0.7372) * 100) / (x_tot / 1000)
-print(Fuel_consumption)
+print('Fuel consumption:-', Fuel_consumption, 'l/100km')
 
-plt.plot(SOC)
+plt.plot(T_z, SOC*100)
 plt.ylabel('State of Charge')
 plt.show()
-
-print(value)
