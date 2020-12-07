@@ -3,7 +3,7 @@ from tkinter import BOTH
 import matplotlib.pyplot as plt
 from scipy.io import loadmat
 from PIL import ImageTk, Image
-from Dynamic_Programming1D import *
+from dynProg1D import *
 
 global data
 data = loadmat('City_MAN_DDP.mat')

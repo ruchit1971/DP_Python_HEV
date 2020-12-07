@@ -1,6 +1,6 @@
 import numpy
 
-from Parallel_Hybrid_Model import *
+from parallelHybrid import *
 
 def dynProg1D(time, SOC_grid, disc, G_z, V_z):
     last_element = len(time)

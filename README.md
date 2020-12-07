@@ -1,17 +1,29 @@
 # DP_Python_HEV
-Dynamic Programming Optimization of Hybrid Vehicle Fuel Consumption. 
-Run the file 'Test_Hybrid_Vehicle_Model.py'
- 
+Dynamic Programming Optimization of Hybrid Vehicle Fuel Consumption in Python. 
+Run the file 'testHybrids.py'
+
+# Files for the optimal control of two hybrid configurations using deteriministic dynamic programming (DDP) lab
+ ================================================================
+
+# Generic DDP functions
+ =====================
+ dynProg1D      - Solving a dynamic programming problem in one variable
+
+# Problem specific scrips and functions
+ =====================================
+ testHybrids    - Template for setting up the problem
+ parallelHybrid - Template for the parallel hybrid vehicle
+
+ Contents       - A help file printing this help for the Hand in assignment
+
+(C) 2020 Ruchit Bhikadiya
  
 1. Main Assignment information:
 A hybrid vehicle has various possibilities of configurations. The parallel vehicle is the 
 well known concepts. The parallel hybrid has a mechanical link (via transmission) from the combustion 
-engine to the wheels. 
-This means that for the parallel hybrid
-only the state of charge is optimized.
-The models for the parallel, should be formulated
-so that the cost for following an arc in the optimal control problem can be
-calculated.
+engine to the wheels. This means that for the parallel hybrid only the state of charge is optimized.
+The models for the parallel, should be formulated so that the cost for following an arc in 
+the optimal control problem can be calculated.
 
 2. Vehicle Parameters:
     # Lower Heating Value
