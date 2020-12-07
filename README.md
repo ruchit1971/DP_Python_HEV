@@ -1,5 +1,6 @@
 # DP_Python_HEV
- Dynamic Programming Optimization of Hybrid Vehicle Fuel Consumption
+Dynamic Programming Optimization of Hybrid Vehicle Fuel Consumption. 
+Run the file 'Test_Hybrid_Vehicle_Model.py'
  
  
 1. Main Assignment information:
