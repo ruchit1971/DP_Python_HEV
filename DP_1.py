@@ -30,7 +30,6 @@ w = (numpy.abs(SOC_grid - Initial_SOC)).argmin()
 finalCost = numpy.zeros(len(SOC_grid))
 finalCost[numpy.where(SOC_grid < 0.5)] = numpy.inf
 
-
 # Function file for Trapz.
 def trapz(input, grid, dx):
     length = len(input)
@@ -43,9 +42,7 @@ def trapz(input, grid, dx):
 
     return result
 
-
-# Function file for paralleHybrid to calculate the stepcost.
-
+# Function file for parallelHybrid to calculate the step cost.
 def parallelHybrid(t_vec, SOC_start, SOC_final, G_z, V_z):
     # Inputs:
     # t_vec:- 1x2 matrix, with the start and stop time for the interval.
@@ -202,7 +199,6 @@ def parallelHybrid(t_vec, SOC_start, SOC_final, G_z, V_z):
     costVector[numpy.where(costVector < 0)] = 0
     return costVector
 
-
 # Dynamic Programming algorithm
 def dynProg1D(time, SOC_grid, disc, G_z, V_z):
     last_element = len(time)
@@ -234,7 +230,7 @@ def dynProg1D(time, SOC_grid, disc, G_z, V_z):
 
     return costToGo, next
 
-
+# Calculate the Optimal Trajectory of state of charge
 value, SOC_path = dynProg1D(T_z, SOC_grid, finalCost, G_z, V_z)
 
 # Graph.
@@ -267,6 +263,7 @@ x_tot = trapz(V_z, T_z, 1)
 Fuel_consumption = ((FC[0] / 0.7372) * 100) / (x_tot / 1000)
 print('Fuel consumption:-', Fuel_consumption, 'l/100km')
 
-plt.plot(T_z, SOC*100)
+plt.plot(T_z, SOC*100, linewidth=2.0)
 plt.ylabel('State of Charge')
+plt.xlabel('Time')
 plt.show()
