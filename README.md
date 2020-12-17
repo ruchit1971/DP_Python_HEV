@@ -1,6 +1,6 @@
 # DP_Python_HEV
 Dynamic Programming Optimization of Hybrid Vehicle Fuel Consumption in Python. 
-Run the file 'testHybrids.py'
+Run the file 'testHybrids.py' and Enter Initial State of Charge.
 
 # Files for the optimal control of two hybrid configurations using deteriministic dynamic programming (DDP) lab
  ================================================================

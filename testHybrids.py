@@ -5,6 +5,11 @@ from scipy.io import loadmat
 from PIL import ImageTk, Image
 from dynProg1D import *
 
+
+print('Enter Initial State of Charge [%] :-')
+x = input()
+
+
 global data
 data = loadmat('City_MAN_DDP.mat')
 
@@ -18,7 +23,7 @@ G_z = data['G_z']
 G_z = G_z.astype(float)
 
 # Create State of Charge grid...
-Initial_SOC = float(0.5)
+Initial_SOC = float(x)/100
 length = len(V_z)
 Time = range(length)
 T_z = data['T_z']
@@ -40,12 +45,11 @@ def trapz(input, grid, dx):
     for idx in time:
         fx = ((input[idx] + input[idx + 1]) / 2) * dx
         result = result + float(fx)
-
     return result
 
 
 
-# Calculate the Optimal Trajectory of state of charge
+# Calculate the Optimal Trajectory of State of Charge
 value, SOC_path = dynProg1D(T_z, SOC_grid, finalCost, G_z, V_z)
 
 # Final State of Charge Graph...
@@ -78,6 +82,7 @@ x_tot = trapz(V_z, T_z, 1)
 Fuel_consumption = ((FC[0] / 0.7372) * 100) / (x_tot / 1000)
 
 # Fuel Consumption...
+print('Results')
 print('Fuel consumption:-', Fuel_consumption, 'l/100km')
 
 plt.plot(T_z, SOC*100, linewidth=2.0)
