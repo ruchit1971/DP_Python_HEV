@@ -85,8 +85,17 @@ Fuel_consumption = ((FC[0] / 0.7372) * 100) / (x_tot / 1000)
 print('Results')
 print('Fuel consumption:-', Fuel_consumption, 'l/100km')
 
-plt.plot(T_z, SOC*100, linewidth=2.0)
-plt.ylabel('State of Charge')
-plt.xlabel('Time')
-plt.show()
 
+# Optimized State of Charge over Drive Cycle...
+plt.figure(figsize=(10, 3.5))
+
+plt.subplot(121)
+plt.plot(T_z, SOC*100, linewidth=2.0)
+plt.ylabel('State of Charge [%]')
+plt.xlabel('Time [s]')
+plt.subplot(122)
+plt.plot(T_z, V_z, linewidth=2.0)
+plt.ylabel('Velocity [m/s]')
+plt.xlabel('Time [s]')
+plt.suptitle('Optimized State of Charge over Drive Cycle')
+plt.show()
